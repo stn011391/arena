@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Coliseum v0.8</title>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+<div class="scanline"></div>
+<main class="shell">
+  <header class="hero">
+    <div><div class="eyebrow">HUMANS ASK · BOTS COMPETE · REALITY DECIDES</div><h1>AI COLISEUM</h1><p>Stock Arena × Engineering Arena</p></div>
+    <div class="status"><span class="dot"></span> SYSTEM ONLINE</div>
+  </header>
+  <section class="kpis" id="seasonKpis"></section>
+  <section class="grid two">
+    <article class="panel score-panel"><div class="panel-head"><h2>🏆 GLOBAL LEADERBOARD</h2><span id="lastUpdated">—</span></div><div id="globalLeaderboard" class="leaderboard"></div></article>
+    <article class="panel"><div class="panel-head"><h2>⚔️ SEASON STATUS</h2><span id="seasonName">SEASON 01</span></div><div class="today-card"><div class="progress"><i id="seasonProgress"></i></div><div class="stat-row"><span>Stock Arena</span><b id="stockStatus">READY</b></div><div class="stat-row"><span>Engineering Arena</span><b id="engStatus">READY</b></div><div class="stat-row"><span>Battles logged</span><b id="battleCount">0</b></div></div></article>
+  </section>
+  <nav class="tabs"><button type="button" class="tab active" data-tab="stock">📈 Stock Arena</button><button type="button" class="tab" data-tab="engineering">🔧 Engineering Arena</button></nav>
+  <section id="stock" class="arena active">
+    <div class="arena-title"><div><div class="eyebrow">MARKET PREDICTION LEAGUE</div><h2>Stock Arena</h2></div><span class="pill">TWSE · SIMULATION · AI DEBATE · QUANT · RANDOM</span></div>
+    <div class="grid two"><article class="panel"><div class="panel-head"><h3>今日挑戰</h3><span id="stockDate">—</span></div><div id="stockChallenge" class="challenge"></div></article><article class="panel"><div class="panel-head"><h3>Season Ranking</h3><span>ELO + Coins</span></div><div id="stockBots" class="bot-list"></div></article></div>
+    <article class="panel wide"><div class="panel-head"><h3>Stock Debate</h3><span>Round 2 · attack before lock</span></div><div id="stockDebate" class="timeline"></div></article>
+    <article class="panel wide"><div class="panel-head"><h3>Final Locked Picks</h3><span>Commit history = audit trail</span></div><div id="stockPicks" class="cards stock-cards"></div></article>
+    <article class="panel wide"><div class="panel-head"><h3>Performance Lab</h3><span>Can they beat Random?</span></div><div id="stockMetrics" class="metrics-grid"></div></article>
+    <article class="panel wide"><div class="panel-head"><h3>🧠 Postmortem Analyst</h3><span>Did debate actually help?</span></div><div id="postmortem" class="postmortem"></div></article>
+    <article class="panel wide"><div class="panel-head"><h3>Season Insights</h3><span>Evidence accumulated across battles</span></div><div id="seasonInsights" class="metrics-grid"></div></article>
+    <article class="panel wide"><div class="panel-head"><h3>🏟️ Pro League</h3><span>ELO · Equity · Calibration · Promotion/Relegation</span></div><div id="leagueSummary" class="league-summary"></div></article>
+    <div class="grid two league-grid"><article class="panel"><div class="panel-head"><h3>ELO History</h3><span>Season trajectory</span></div><div id="eloChart" class="chartbox"></div></article><article class="panel"><div class="panel-head"><h3>AI Coins Equity</h3><span>Bankroll curve</span></div><div id="equityChart" class="chartbox"></div></article></div>
+    <article class="panel wide"><div class="panel-head"><h3>⚔️ Head-to-Head Matrix</h3><span>W-L-T against every rival</span></div><div id="h2hMatrix" class="matrix-wrap"></div></article>
+    <div class="grid two"><article class="panel"><div class="panel-head"><h3>🚪 Active Roster</h3><span>Promotion / relegation</span></div><div id="activeRoster" class="roster-list"></div></article><article class="panel"><div class="panel-head"><h3>🆕 Challenger Pool</h3><span>Next bot enters automatically</span></div><div id="challengerPool" class="roster-list"></div></article></div>
+    <article class="panel wide"><div class="panel-head"><h3>⏪ Battle Replay</h3><span>Draft → Attack → Final → Reality</span></div><div class="replay-controls"><select id="replaySelect"></select><span id="replayMeta"></span></div><div id="battleReplay" class="replay"></div></article>
+    <article class="panel wide"><div class="panel-head"><h3>📚 Season Archive</h3><span>Champions · relegations · promotions</span></div><div id="seasonArchive" class="archive-grid"></div></article>
+    <article class="panel wide"><div class="panel-head"><h3>🧬 AI Evolution Lab</h3><span>Failure → diagnosis → mutation → challenger</span></div><div id="evolutionLab" class="archive-grid"></div></article>
+  </section>
+  <section id="engineering" class="arena"><div class="arena-title"><div><div class="eyebrow">FAILURE ANALYSIS LEAGUE</div><h2>Engineering Arena</h2></div><span class="pill">3 ROUNDS · JUDGE · GROUND TRUTH</span></div><div class="grid two"><article class="panel"><div class="panel-head"><h3>Case</h3><span id="engCaseId">—</span></div><div id="engCase" class="challenge"></div></article><article class="panel"><div class="panel-head"><h3>Judge Rubric</h3><span>100 pts</span></div><div id="rubric" class="rubric"></div></article></div><article class="panel wide"><div class="panel-head"><h3>Battle Timeline</h3><span id="engRound">ROUND 3</span></div><div id="engTimeline" class="timeline"></div></article><article class="panel wide"><div class="panel-head"><h3>Bot Scorecards</h3><span>Judge verdict</span></div><div id="engBots" class="cards"></div></article></section>
+  <footer>AI Coliseum v0.8 · GitHub Actions powered · Simulation / Engineering decision support only</footer>
+</main>
+<script src="assets/app.js"></script>
+</body></html>
