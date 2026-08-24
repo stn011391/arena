@@ -3,8 +3,11 @@
   "synthetic": false,
   "warmup_start": "2022-08-01",
   "competition_start": "2023-08-24",
+  "signal_timing": "T close",
+  "execution_timing": "T+1 open",
   "symbols": [
     "2330.TW",
+    "2454.TW",
     "2317.TW",
     "2308.TW",
     "2382.TW",
@@ -31,7 +34,8 @@
     "5274.TWO",
     "6488.TWO",
     "8299.TWO",
-    "5347.TWO"
+    "5347.TWO",
+    "3260.TWO"
   ],
-  "generated_utc": "2026-08-24T10:57:23.318839+00:00"
+  "generated_utc": "2026-08-24T11:02:34.828682+00:00"
 }
