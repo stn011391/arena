@@ -5,6 +5,14 @@
   "competition_start": "2023-08-24",
   "signal_timing": "T close",
   "execution_timing": "T+1 open",
+  "robots": [
+    "Momentum Hunter",
+    "Breakout Sniper",
+    "Reversal Hunter",
+    "Quant Master",
+    "Risk Master",
+    "Precision Hunter"
+  ],
   "symbols": [
     "2330.TW",
     "2454.TW",
@@ -37,5 +45,5 @@
     "5347.TWO",
     "3260.TWO"
   ],
-  "generated_utc": "2026-08-24T11:02:34.828682+00:00"
+  "generated_utc": "2026-08-24T11:15:16.348710+00:00"
 }
