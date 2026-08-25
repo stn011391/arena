@@ -13,6 +13,12 @@
     "Risk Master",
     "Precision Hunter"
   ],
+  "precision_search": {
+    "mode": "automatic strategy replacement",
+    "target_win_rate_strictly_greater_than": 70.0,
+    "minimum_completed_trades": 30,
+    "publish_failed_candidate": false
+  },
   "symbols": [
     "2330.TW",
     "2454.TW",
@@ -45,5 +51,5 @@
     "5347.TWO",
     "3260.TWO"
   ],
-  "generated_utc": "2026-08-24T11:15:16.348710+00:00"
+  "generated_utc": "2026-08-25T00:35:10.272634+00:00"
 }
