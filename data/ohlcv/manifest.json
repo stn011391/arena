@@ -14,9 +14,11 @@
     "Precision Hunter"
   ],
   "precision_search": {
-    "mode": "automatic strategy replacement",
+    "mode": "multi-round automatic strategy evolution",
     "target_win_rate_strictly_greater_than": 70.0,
     "minimum_completed_trades": 30,
+    "max_rounds": 4,
+    "max_attempts": 1200,
     "publish_failed_candidate": false
   },
   "symbols": [
@@ -51,5 +53,5 @@
     "5347.TWO",
     "3260.TWO"
   ],
-  "generated_utc": "2026-08-25T00:35:10.272634+00:00"
+  "generated_utc": "2026-08-25T00:58:31.861610+00:00"
 }
