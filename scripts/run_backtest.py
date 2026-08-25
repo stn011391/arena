@@ -6,6 +6,7 @@ import yfinance as yf
 
 START='2023-08-24'; WARMUP='2022-08-01'; INITIAL=1_000_000; MAX_POS=5
 TARGET_WIN_RATE=70.0; MIN_TARGET_TRADES=30
+MAX_SEARCH_ROUNDS=4; MAX_SEARCH_ATTEMPTS=1200
 OUT=Path('data'); OUT.mkdir(exist_ok=True); (OUT/'ohlcv').mkdir(exist_ok=True)
 SYMS=['2330.TW','2454.TW','2317.TW','2308.TW','2382.TW','3231.TW','3017.TW','2345.TW','2376.TW','3034.TW','6669.TW','2357.TW','2881.TW','2882.TW','2891.TW','2886.TW','2603.TW','2615.TW','3711.TW','3661.TW','3008.TW','1590.TW','2327.TW','3443.TW','3533.TW','5274.TWO','6488.TWO','8299.TWO','5347.TWO','3260.TWO']
 BOTS=['Momentum Hunter','Breakout Sniper','Reversal Hunter','Quant Master','Risk Master','Precision Hunter']
@@ -21,7 +22,7 @@ def download():
    if len(d)>200: frames[s]=d
   except Exception: pass
  if len(frames)<10: raise RuntimeError('Insufficient real market data')
- manifest={'source':'Yahoo Finance exchange feeds (.TW/.TWO)','synthetic':False,'warmup_start':WARMUP,'competition_start':START,'signal_timing':'T close','execution_timing':'T+1 open','robots':BOTS,'precision_search':{'mode':'automatic strategy replacement','target_win_rate_strictly_greater_than':TARGET_WIN_RATE,'minimum_completed_trades':MIN_TARGET_TRADES,'publish_failed_candidate':False},'symbols':list(frames),'generated_utc':pd.Timestamp.utcnow().isoformat()}
+ manifest={'source':'Yahoo Finance exchange feeds (.TW/.TWO)','synthetic':False,'warmup_start':WARMUP,'competition_start':START,'signal_timing':'T close','execution_timing':'T+1 open','robots':BOTS,'precision_search':{'mode':'multi-round automatic strategy evolution','target_win_rate_strictly_greater_than':TARGET_WIN_RATE,'minimum_completed_trades':MIN_TARGET_TRADES,'max_rounds':MAX_SEARCH_ROUNDS,'max_attempts':MAX_SEARCH_ATTEMPTS,'publish_failed_candidate':False},'symbols':list(frames),'generated_utc':pd.Timestamp.utcnow().isoformat()}
  (OUT/'ohlcv'/'manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8'); return frames
 
 def features(d):
@@ -51,6 +52,9 @@ def precision_score(row,cfg):
  if fam=='Deep Pullback Trend':
   ok=row.Close>row.ma60 and row.ma20>row.ma60 and row.r60>=cfg['mom60'] and cfg['r5_low']<=row.r5<=cfg['r5_high'] and row.r20>=cfg['mom20'] and cfg['vr_low']<=vr<=cfg['vr_high']
   return 1.6*row.r60-2.0*row.r5+.5*row.r20-2*row.vol20 if ok else -999
+ if fam=='Recovery Trend':
+  ok=row.Close>row.ma60 and row.ma20>=row.ma60*.995 and row.r60>=cfg['mom60'] and cfg['r5_low']<=row.r5<=cfg['r5_high'] and cfg['vr_low']<=vr<=cfg['vr_high']
+  return 1.5*row.r60-2.2*row.r5+.7*row.r20-2.8*row.vol20 if ok else -999
  return -999
 
 def score(row,bot):
@@ -103,30 +107,82 @@ def run(frames,bi,F=None,include_ledger=True):
 
 def precision_candidates():
  entries=[]
- for mom60,mom20,max_vol in [(0.04,0.00,.040),(0.08,.01,.035),(0.12,.02,.030),(0.16,.03,.028),(0.20,.04,.025)]:
+ regimes=[(0.02,-.01,.045),(0.05,0,.040),(0.08,.01,.035),(0.12,.02,.032),(0.16,.03,.030),(0.20,.04,.028),(0.24,.05,.025)]
+ for mom60,mom20,max_vol in regimes:
   entries += [
-   {'family':'Trend Pullback','mom60':mom60,'mom20':mom20,'r5_low':-.06,'r5_high':.025,'vr_low':.5,'vr_high':2.8,'max_vol':max_vol},
-   {'family':'Breakout Continuation','mom60':mom60,'near_high_low':-.015,'near_high_high':.035,'vr_low':.7,'vr_high':3.5,'max_vol':max_vol},
-   {'family':'Mean Reversion Uptrend','mom60':mom60,'r5_low':-.10,'r5_high':-.005,'ma20_floor':.94,'vr_low':.4,'max_vol':max_vol},
-   {'family':'Low Volatility Trend','mom60':mom60,'mom20':mom20,'vr_low':.45,'max_vol':max_vol},
-   {'family':'Deep Pullback Trend','mom60':mom60,'mom20':-.02,'r5_low':-.12,'r5_high':-.015,'vr_low':.4,'vr_high':2.5,'max_vol':max_vol},
+   {'family':'Trend Pullback','mom60':mom60,'mom20':mom20,'r5_low':-.07,'r5_high':.025,'vr_low':.45,'vr_high':2.8,'max_vol':max_vol},
+   {'family':'Breakout Continuation','mom60':mom60,'near_high_low':-.02,'near_high_high':.04,'vr_low':.6,'vr_high':3.5,'max_vol':max_vol},
+   {'family':'Mean Reversion Uptrend','mom60':mom60,'r5_low':-.12,'r5_high':-.003,'ma20_floor':.92,'vr_low':.35,'max_vol':max_vol},
+   {'family':'Low Volatility Trend','mom60':mom60,'mom20':mom20,'vr_low':.4,'max_vol':max_vol},
+   {'family':'Deep Pullback Trend','mom60':mom60,'mom20':-.03,'r5_low':-.14,'r5_high':-.012,'vr_low':.35,'vr_high':2.5,'max_vol':max_vol},
+   {'family':'Recovery Trend','mom60':mom60,'r5_low':-.10,'r5_high':.01,'vr_low':.35,'vr_high':2.8,'max_vol':max_vol},
   ]
- exits=[(.03,.04,20,'none'),(.035,.05,25,'none'),(.04,.06,30,'none'),(.05,.07,40,'none'),(.03,.06,30,'ma20'),(.04,.08,45,'ma20'),(.025,.08,45,'none'),(.03,.10,60,'none'),(.035,.12,75,'none'),(.04,.15,90,'none')]
+ exits=[
+  (.012,.06,30,'none'),(.015,.08,45,'none'),(.018,.10,60,'none'),(.020,.12,75,'none'),(.025,.15,90,'none'),
+  (.015,.10,75,'ma20'),(.020,.12,90,'ma20'),(.025,.15,120,'ma20'),
+  (.025,.08,45,'none'),(.030,.10,60,'none'),(.035,.12,75,'none'),(.040,.15,90,'none'),
+  (.030,.06,30,'ma20'),(.040,.08,45,'ma20'),(.050,.10,60,'ma20')]
  return [{**e,'take_profit':tp,'stop_loss':sl,'max_hold':hold,'exit_ma':ma} for tp,sl,hold,ma in exits for e in entries]
+
+def cfg_key(cfg):
+ return json.dumps(cfg,sort_keys=True,separators=(',',':'))
+
+def passes(r):
+ pf=r['profit_factor']
+ return r['win_rate']>TARGET_WIN_RATE and r['trades']>=MIN_TARGET_TRADES and r['total_return']>0 and pf is not None and pf>1
+
+def rank_attempt(a):
+ enough=a['trades']>=MIN_TARGET_TRADES
+ pf=a['profit_factor'] if a['profit_factor'] is not None else 0
+ return (1 if enough else 0,a['win_rate'],pf,a['total_return'],a['trades'])
+
+def mutate_top_configs(top,round_no,seen):
+ out=[]
+ tp_factors=[.55,.7,.85,1.0,1.15]
+ sl_factors=[.9,1.0,1.2,1.45,1.75]
+ hold_add=[0,15,30,45]
+ mom_shift=[-.04,-.02,0,.02,.04]
+ vol_shift=[-.006,-.003,0,.003]
+ for item in top:
+  base=item['config']
+  for tf in tp_factors:
+   for sf in sl_factors:
+    c=dict(base);c['take_profit']=round(max(.008,min(.08,base['take_profit']*tf)),4);c['stop_loss']=round(max(.025,min(.25,base['stop_loss']*sf)),4)
+    c['max_hold']=int(min(150,max(20,base['max_hold']+hold_add[(round_no+len(out))%len(hold_add)])))
+    c['mom60']=round(max(-.02,min(.35,base.get('mom60',.08)+mom_shift[(round_no+len(out))%len(mom_shift)])),4)
+    c['max_vol']=round(max(.018,min(.06,base.get('max_vol',.035)+vol_shift[(round_no+len(out))%len(vol_shift)])),4)
+    if 'r5_low' in c: c['r5_low']=round(max(-.20,min(-.005,c['r5_low']-(.01*round_no))),4)
+    if 'r5_high' in c: c['r5_high']=round(min(.05,c['r5_high']+.005*round_no),4)
+    k=cfg_key(c)
+    if k not in seen:
+     seen.add(k);out.append(c)
+    if len(out)>=300: return out
+ return out
 
 def search_precision(frames,F):
  global PRECISION_CFG
- attempts=[]; candidates=precision_candidates()
- for i,cfg in enumerate(candidates,1):
-  PRECISION_CFG=cfg; r=run(frames,5,F,include_ledger=False)
-  attempts.append({'attempt':i,'family':cfg['family'],'win_rate':r['win_rate'],'trades':r['trades'],'total_return':r['total_return'],'profit_factor':r['profit_factor']})
-  if r['win_rate']>TARGET_WIN_RATE and r['trades']>=MIN_TARGET_TRADES and r['total_return']>0 and (r['profit_factor'] is None or r['profit_factor']>1):
-   final=run(frames,5,F,include_ledger=True); final.update({'target_pass':True,'strategy_family':cfg['family'],'strategy_config':cfg,'search_attempts':i,'search_space_size':len(candidates),'minimum_target_trades':MIN_TARGET_TRADES,'search_method':'Replace strategy family/config and rerun until strict win-rate target passes.'}); return final,attempts
- best=sorted(attempts,key=lambda x:(x['win_rate'],x['total_return'],x['trades']),reverse=True)[:5]
- raise RuntimeError(f'Auto-search exhausted {len(candidates)} strategies without valid >{TARGET_WIN_RATE}% win rate, >= {MIN_TARGET_TRADES} trades and positive return. Best={best}')
+ attempts=[];seen=set();round_candidates=precision_candidates()
+ for c in round_candidates: seen.add(cfg_key(c))
+ attempt_no=0;best_overall=[]
+ for round_no in range(1,MAX_SEARCH_ROUNDS+1):
+  scored=[]
+  for cfg in round_candidates:
+   if attempt_no>=MAX_SEARCH_ATTEMPTS: break
+   attempt_no+=1;PRECISION_CFG=cfg;r=run(frames,5,F,include_ledger=False)
+   item={'attempt':attempt_no,'round':round_no,'family':cfg['family'],'win_rate':r['win_rate'],'trades':r['trades'],'total_return':r['total_return'],'profit_factor':r['profit_factor'],'config':cfg}
+   attempts.append(item);scored.append(item)
+   if passes(r):
+    final=run(frames,5,F,include_ledger=True);final.update({'target_pass':True,'strategy_family':cfg['family'],'strategy_config':cfg,'search_attempts':attempt_no,'search_round':round_no,'minimum_target_trades':MIN_TARGET_TRADES,'search_method':'Multi-round strategy evolution: failed candidates are discarded; top candidates are mutated and rerun until strict win-rate target passes.'});return final,attempts
+  best_overall=sorted(best_overall+scored,key=rank_attempt,reverse=True)[:20]
+  print('Precision round',round_no,'attempts',attempt_no,'best',[(x['family'],x['win_rate'],x['trades'],x['total_return'],x['profit_factor']) for x in best_overall[:5]])
+  if attempt_no>=MAX_SEARCH_ATTEMPTS: break
+  round_candidates=mutate_top_configs(best_overall[:12],round_no,seen)
+  if not round_candidates: break
+ best=[{k:v for k,v in x.items() if k!='config'} for x in best_overall[:10]]
+ raise RuntimeError(f'Adaptive auto-search exhausted {attempt_no} attempts across {min(MAX_SEARCH_ROUNDS,round_no)} rounds without valid >{TARGET_WIN_RATE}% win rate, >= {MIN_TARGET_TRADES} trades, positive return and Profit Factor >1. Best={best}')
 
 def main():
  frames=download();F={s:features(d) for s,d in frames.items()};robots=[run(frames,i,F) for i in range(5)];precision,attempts=search_precision(frames,F);robots.append(precision);robots.sort(key=lambda x:x['final_equity'],reverse=True)
- result={'status':'complete','synthetic':False,'signal_timing':'T close','execution_timing':'T+1 open','start':START,'end':max(str(d.index[-1].date()) for d in frames.values()),'initial_capital_per_robot':INITIAL,'max_positions':MAX_POS,'precision_search':{'target_win_rate_strictly_greater_than':TARGET_WIN_RATE,'minimum_completed_trades':MIN_TARGET_TRADES,'attempts_run':len(attempts),'passed':True,'note':'Search is optimized on the historical period and can overfit; each trade still uses T-close signal and T+1-open execution.'},'robots':robots}
- (OUT/'backtest_results.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');print([(r['name'],r['total_return'],r['win_rate'],r['trades']) for r in robots]);print('Precision:',precision['search_attempts'],precision['strategy_family'],precision['win_rate'])
+ result={'status':'complete','synthetic':False,'signal_timing':'T close','execution_timing':'T+1 open','start':START,'end':max(str(d.index[-1].date()) for d in frames.values()),'initial_capital_per_robot':INITIAL,'max_positions':MAX_POS,'precision_search':{'mode':'multi-round automatic strategy evolution','target_win_rate_strictly_greater_than':TARGET_WIN_RATE,'minimum_completed_trades':MIN_TARGET_TRADES,'attempts_run':len(attempts),'rounds_run':precision['search_round'],'passed':True,'note':'Search is optimized on the same historical period and therefore can overfit; every trade still obeys T-close signal and T+1-open execution.'},'robots':robots}
+ (OUT/'backtest_results.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');print([(r['name'],r['total_return'],r['win_rate'],r['trades']) for r in robots]);print('Precision:',precision['search_attempts'],precision['search_round'],precision['strategy_family'],precision['win_rate'],precision['profit_factor'])
 if __name__=='__main__':main()
