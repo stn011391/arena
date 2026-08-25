@@ -20,6 +20,8 @@ jobs:
     timeout-minutes: 180
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
@@ -32,5 +34,19 @@ jobs:
           git config user.name "stock-arena-bot"
           git config user.email "stock-arena-bot@users.noreply.github.com"
           git add -- data/backtest_results.json data/ohlcv/manifest.json
-          git diff --cached --quiet || git commit -m "data: refresh real 3-year walk-forward results"
-          git push
+          if git diff --cached --quiet; then
+            echo "No result changes to publish."
+            exit 0
+          fi
+          git commit -m "data: refresh real 3-year walk-forward results"
+          for attempt in 1 2 3; do
+            echo "Publish attempt ${attempt}/3"
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then
+              exit 0
+            fi
+            sleep 2
+          done
+          echo "Failed to publish backtest results after 3 attempts."
+          exit 1
