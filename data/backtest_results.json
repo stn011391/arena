@@ -5,7 +5,7 @@
   "execution_timing": "T+1 open",
   "discipline_schema_version": "1.0",
   "start": "2023-08-24",
-  "end": "2026-09-11",
+  "end": "2026-09-14",
   "initial_capital_per_robot": 1000000,
   "max_positions": 5,
   "precision_search": {
@@ -35,16 +35,16 @@
         "execution_rule": "只使用 T 日收盤前已知資料產生訊號，下一個可交易日開盤成交；最多同時持有 5 檔。"
       },
       "discipline_audit": "Every published trade must have a signal reason and must pass the robot discipline checks.",
-      "final_equity": 2453018.0,
-      "total_return": 145.3,
-      "win_rate": 39.04,
+      "final_equity": 2429423.0,
+      "total_return": 142.94,
+      "win_rate": 39.18,
       "target_win_rate": null,
       "target_pass": null,
-      "trades": 415,
-      "cagr": 34.21,
+      "trades": 416,
+      "cagr": 33.68,
       "max_drawdown": -49.37,
-      "sharpe": 1.05,
-      "profit_factor": 1.46,
+      "sharpe": 1.04,
+      "profit_factor": 1.47,
       "open_positions": [
         {
           "symbol": "3017",
@@ -52,7 +52,7 @@
           "entry": "2026-08-07",
           "entry_price": 2935.0,
           "qty": 139,
-          "last_close": 3370.0,
+          "last_close": 3310.0,
           "entry_reason": "突破排名入選 #1：距前60日高點 +2.98%、量比 2.05、20日動能 +25.11%，分數 0.6479。",
           "entry_checks": [
             {
@@ -93,7 +93,7 @@
           "entry": "2026-08-19",
           "entry_price": 5135.0,
           "qty": 80,
-          "last_close": 6660.0,
+          "last_close": 5995.0,
           "entry_reason": "突破排名入選 #1：距前60日高點 +1.83%、量比 1.53、20日動能 +32.75%，分數 0.6121。",
           "entry_checks": [
             {
@@ -129,53 +129,12 @@
           "discipline_pass": true
         },
         {
-          "symbol": "6669",
-          "signal_entry": "2026-08-19",
-          "entry": "2026-08-20",
-          "entry_price": 2157.37,
-          "qty": 190,
-          "last_close": 2310.0,
-          "entry_reason": "突破排名入選 #1：距前60日高點 -3.70%、量比 0.64、20日動能 +15.91%，分數 0.1441。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #1 在可用名額 1 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 2137.26,
-            "ma10": 2086.3,
-            "ma20": 1981.7,
-            "ma60": 1785.94,
-            "r5_pct": 5.81,
-            "r20_pct": 15.91,
-            "r60_pct": 20.74,
-            "vol20_pct": 4.53,
-            "volume_ratio": 0.64,
-            "prior_60d_high": 2219.4,
-            "drawdown_60d_pct": -3.7
-          },
-          "discipline_pass": true
-        },
-        {
           "symbol": "5274",
           "signal_entry": "2026-09-07",
           "entry": "2026-09-08",
           "entry_price": 19260.0,
           "qty": 22,
-          "last_close": 17885.0,
+          "last_close": 17980.0,
           "entry_reason": "突破排名入選 #1：距前60日高點 +7.65%、量比 1.56、20日動能 +16.17%，分數 0.6247。",
           "entry_checks": [
             {
@@ -216,7 +175,7 @@
           "entry": "2026-09-11",
           "entry_price": 6200.0,
           "qty": 100,
-          "last_close": 6120.0,
+          "last_close": 6400.0,
           "entry_reason": "突破排名入選 #1：距前60日高點 +1.63%、量比 0.84、20日動能 +12.36%，分數 0.2990。",
           "entry_checks": [
             {
@@ -248,6 +207,47 @@
             "volume_ratio": 0.84,
             "prior_60d_high": 6125.0,
             "drawdown_60d_pct": 0.0
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2886",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 51.4,
+          "qty": 8620,
+          "last_close": 52.5,
+          "entry_reason": "突破排名入選 #1：距前60日高點 -2.64%、量比 1.16、20日動能 +9.19%，分數 0.1875。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 1 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 51.7,
+            "ma10": 49.87,
+            "ma20": 48.37,
+            "ma60": 48.07,
+            "r5_pct": 4.34,
+            "r20_pct": 9.19,
+            "r60_pct": 13.63,
+            "vol20_pct": 1.67,
+            "volume_ratio": 1.16,
+            "prior_60d_high": 53.1,
+            "drawdown_60d_pct": -2.64
           },
           "discipline_pass": true
         }
@@ -30962,6 +30962,80 @@
             "drawdown_60d_pct": -12.65
           },
           "discipline_pass": true
+        },
+        {
+          "symbol": "6669",
+          "signal_entry": "2026-08-19",
+          "entry": "2026-08-20",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 2157.37,
+          "exit_price": 2315.0,
+          "qty": 190,
+          "pnl": 27418.72,
+          "return_pct": 6.68,
+          "days": 25,
+          "entry_reason": "突破排名入選 #1：距前60日高點 -3.70%、量比 0.64、20日動能 +15.91%，分數 0.1441。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 1 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 2137.26,
+            "ma10": 2086.3,
+            "ma20": 1981.7,
+            "ma60": 1785.94,
+            "r5_pct": 5.81,
+            "r20_pct": 15.91,
+            "r60_pct": 20.74,
+            "vol20_pct": 4.53,
+            "volume_ratio": 0.64,
+            "prior_60d_high": 2219.4,
+            "drawdown_60d_pct": -3.7
+          },
+          "exit_reason": "趨勢失效：收盤 2310.00 < MA20 2320.90",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 2310.0,
+            "ma10": 2445.36,
+            "ma20": 2320.9,
+            "ma60": 1955.75,
+            "r5_pct": -9.94,
+            "r20_pct": 7.07,
+            "r60_pct": 34.31,
+            "vol20_pct": 3.79,
+            "volume_ratio": 0.39,
+            "prior_60d_high": 2615.0,
+            "drawdown_60d_pct": -11.66
+          },
+          "discipline_pass": true
         }
       ],
       "equity_curve": [
@@ -31580,65 +31654,24 @@
         "execution_rule": "只使用 T 日收盤前已知資料產生訊號，下一個可交易日開盤成交；最多同時持有 5 檔。"
       },
       "discipline_audit": "Every published trade must have a signal reason and must pass the robot discipline checks.",
-      "final_equity": 2010640.0,
-      "total_return": 101.06,
-      "win_rate": 36.72,
+      "final_equity": 1979630.0,
+      "total_return": 97.96,
+      "win_rate": 36.78,
       "target_win_rate": null,
       "target_pass": null,
-      "trades": 433,
-      "cagr": 25.73,
+      "trades": 435,
+      "cagr": 25.02,
       "max_drawdown": -52.75,
-      "sharpe": 0.83,
+      "sharpe": 0.82,
       "profit_factor": 1.33,
       "open_positions": [
-        {
-          "symbol": "2357",
-          "signal_entry": "2026-07-29",
-          "entry": "2026-07-30",
-          "entry_price": 762.0,
-          "qty": 429,
-          "last_close": 924.0,
-          "entry_reason": "風險調整排名入選 #1：相對MA60 +4.02%、20日 +15.83%、波動 2.46%、60日回撤 -18.26%，分數 0.0685。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #1 在可用名額 1 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 761.0,
-            "ma10": 739.2,
-            "ma20": 712.55,
-            "ma60": 731.58,
-            "r5_pct": 0.53,
-            "r20_pct": 15.83,
-            "r60_pct": 28.98,
-            "vol20_pct": 2.46,
-            "volume_ratio": 1.64,
-            "prior_60d_high": 931.0,
-            "drawdown_60d_pct": -18.26
-          },
-          "discipline_pass": true
-        },
         {
           "symbol": "3008",
           "signal_entry": "2026-08-18",
           "entry": "2026-08-19",
           "entry_price": 5135.0,
           "qty": 66,
-          "last_close": 6660.0,
+          "last_close": 5995.0,
           "entry_reason": "風險調整排名入選 #1：相對MA60 +24.81%、20日 +32.75%、波動 4.76%、60日回撤 +0.00%，分數 0.4223。",
           "entry_checks": [
             {
@@ -31679,7 +31712,7 @@
           "entry": "2026-08-24",
           "entry_price": 5635.0,
           "qty": 56,
-          "last_close": 6120.0,
+          "last_close": 6400.0,
           "entry_reason": "風險調整排名入選 #1：相對MA60 +23.01%、20日 +37.59%、波動 6.07%、60日回撤 -4.27%，分數 0.3972。",
           "entry_checks": [
             {
@@ -31715,53 +31748,12 @@
           "discipline_pass": true
         },
         {
-          "symbol": "6669",
-          "signal_entry": "2026-09-07",
-          "entry": "2026-09-08",
-          "entry_price": 2455.0,
-          "qty": 161,
-          "last_close": 2310.0,
-          "entry_reason": "風險調整排名入選 #1：相對MA60 +30.22%、20日 +23.58%、波動 3.65%、60日回撤 -4.78%，分數 0.4379。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #1 在可用名額 1 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 2490.0,
-            "ma10": 2426.6,
-            "ma20": 2264.92,
-            "ma60": 1912.11,
-            "r5_pct": 4.68,
-            "r20_pct": 23.58,
-            "r60_pct": 53.14,
-            "vol20_pct": 3.65,
-            "volume_ratio": 1.0,
-            "prior_60d_high": 2615.0,
-            "drawdown_60d_pct": -4.78
-          },
-          "discipline_pass": true
-        },
-        {
           "symbol": "3017",
           "signal_entry": "2026-09-10",
           "entry": "2026-09-11",
           "entry_price": 3360.0,
           "qty": 136,
-          "last_close": 3370.0,
+          "last_close": 3310.0,
           "entry_reason": "風險調整排名入選 #1：相對MA60 +27.29%、20日 +8.13%、波動 3.78%、60日回撤 -3.08%，分數 0.2951。",
           "entry_checks": [
             {
@@ -31793,6 +31785,88 @@
             "volume_ratio": 0.69,
             "prior_60d_high": 3570.0,
             "drawdown_60d_pct": -3.08
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2615",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 113.0,
+          "qty": 3333,
+          "last_close": 113.0,
+          "entry_reason": "風險調整排名入選 #1：相對MA60 +20.54%、20日 +23.62%、波動 4.54%、60日回撤 -11.46%，分數 0.2890。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 112.0,
+            "ma10": 113.6,
+            "ma20": 113.8,
+            "ma60": 92.91,
+            "r5_pct": -2.61,
+            "r20_pct": 23.62,
+            "r60_pct": 39.3,
+            "vol20_pct": 4.54,
+            "volume_ratio": 0.63,
+            "prior_60d_high": 126.5,
+            "drawdown_60d_pct": -11.46
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2881",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 146.5,
+          "qty": 2571,
+          "last_close": 154.0,
+          "entry_reason": "風險調整排名入選 #2：相對MA60 +12.63%、20日 +14.67%、波動 2.46%、60日回撤 -1.33%，分數 0.1974。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #2 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 148.5,
+            "ma10": 147.25,
+            "ma20": 140.78,
+            "ma60": 131.85,
+            "r5_pct": -1.33,
+            "r20_pct": 14.67,
+            "r60_pct": 7.61,
+            "vol20_pct": 2.46,
+            "volume_ratio": 0.5,
+            "prior_60d_high": 150.5,
+            "drawdown_60d_pct": -1.33
           },
           "discipline_pass": true
         }
@@ -63839,6 +63913,154 @@
             "drawdown_60d_pct": -12.65
           },
           "discipline_pass": true
+        },
+        {
+          "symbol": "2357",
+          "signal_entry": "2026-07-29",
+          "entry": "2026-07-30",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 762.0,
+          "exit_price": 900.0,
+          "qty": 429,
+          "pnl": 57027.68,
+          "return_pct": 17.42,
+          "days": 46,
+          "entry_reason": "風險調整排名入選 #1：相對MA60 +4.02%、20日 +15.83%、波動 2.46%、60日回撤 -18.26%，分數 0.0685。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 1 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 761.0,
+            "ma10": 739.2,
+            "ma20": 712.55,
+            "ma60": 731.58,
+            "r5_pct": 0.53,
+            "r20_pct": 15.83,
+            "r60_pct": 28.98,
+            "vol20_pct": 2.46,
+            "volume_ratio": 1.64,
+            "prior_60d_high": 931.0,
+            "drawdown_60d_pct": -18.26
+          },
+          "exit_reason": "趨勢失效：收盤 924.00 < MA20 961.65",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 924.0,
+            "ma10": 987.4,
+            "ma20": 961.65,
+            "ma60": 823.4,
+            "r5_pct": -9.85,
+            "r20_pct": -7.23,
+            "r60_pct": 17.11,
+            "vol20_pct": 3.18,
+            "volume_ratio": 1.63,
+            "prior_60d_high": 1025.0,
+            "drawdown_60d_pct": -9.85
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "6669",
+          "signal_entry": "2026-09-07",
+          "entry": "2026-09-08",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 2455.0,
+          "exit_price": 2315.0,
+          "qty": 161,
+          "pnl": -24752.5,
+          "return_pct": -6.25,
+          "days": 6,
+          "entry_reason": "風險調整排名入選 #1：相對MA60 +30.22%、20日 +23.58%、波動 3.65%、60日回撤 -4.78%，分數 0.4379。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 1 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 2490.0,
+            "ma10": 2426.6,
+            "ma20": 2264.92,
+            "ma60": 1912.11,
+            "r5_pct": 4.68,
+            "r20_pct": 23.58,
+            "r60_pct": 53.14,
+            "vol20_pct": 3.65,
+            "volume_ratio": 1.0,
+            "prior_60d_high": 2615.0,
+            "drawdown_60d_pct": -4.78
+          },
+          "exit_reason": "趨勢失效：收盤 2310.00 < MA20 2320.90",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 2310.0,
+            "ma10": 2445.36,
+            "ma20": 2320.9,
+            "ma60": 1955.75,
+            "r5_pct": -9.94,
+            "r20_pct": 7.07,
+            "r60_pct": 34.31,
+            "vol20_pct": 3.79,
+            "volume_ratio": 0.39,
+            "prior_60d_high": 2615.0,
+            "drawdown_60d_pct": -11.66
+          },
+          "discipline_pass": true
         }
       ],
       "equity_curve": [
@@ -64457,65 +64679,24 @@
         "execution_rule": "只使用 T 日收盤前已知資料產生訊號，下一個可交易日開盤成交；最多同時持有 5 檔。"
       },
       "discipline_audit": "Every published trade must have a signal reason and must pass the robot discipline checks.",
-      "final_equity": 1857280.0,
-      "total_return": 85.73,
-      "win_rate": 39.1,
+      "final_equity": 1820250.0,
+      "total_return": 82.03,
+      "win_rate": 39.32,
       "target_win_rate": null,
       "target_pass": null,
-      "trades": 555,
-      "cagr": 22.51,
+      "trades": 557,
+      "cagr": 21.64,
       "max_drawdown": -56.8,
-      "sharpe": 0.74,
-      "profit_factor": 1.2,
+      "sharpe": 0.72,
+      "profit_factor": 1.22,
       "open_positions": [
-        {
-          "symbol": "2357",
-          "signal_entry": "2026-07-29",
-          "entry": "2026-07-30",
-          "entry_price": 762.0,
-          "qty": 374,
-          "last_close": 924.0,
-          "entry_reason": "Quant排名入選 #1：60日 +28.98%、20日 +15.83%、波動 2.46%，分數 0.5685。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #1 在可用名額 3 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 761.0,
-            "ma10": 739.2,
-            "ma20": 712.55,
-            "ma60": 731.58,
-            "r5_pct": 0.53,
-            "r20_pct": 15.83,
-            "r60_pct": 28.98,
-            "vol20_pct": 2.46,
-            "volume_ratio": 1.64,
-            "prior_60d_high": 931.0,
-            "drawdown_60d_pct": -18.26
-          },
-          "discipline_pass": true
-        },
         {
           "symbol": "3008",
           "signal_entry": "2026-08-06",
           "entry": "2026-08-07",
           "entry_price": 4605.0,
           "qty": 62,
-          "last_close": 6660.0,
+          "last_close": 5995.0,
           "entry_reason": "Quant排名入選 #1：60日 +62.28%、20日 +17.09%、波動 5.11%，分數 1.0836。",
           "entry_checks": [
             {
@@ -64556,7 +64737,7 @@
           "entry": "2026-08-12",
           "entry_price": 2765.0,
           "qty": 101,
-          "last_close": 3370.0,
+          "last_close": 3310.0,
           "entry_reason": "Quant排名入選 #1：60日 +14.52%、20日 +30.19%、波動 5.27%，分數 0.5325。",
           "entry_checks": [
             {
@@ -64592,53 +64773,12 @@
           "discipline_pass": true
         },
         {
-          "symbol": "6669",
-          "signal_entry": "2026-08-18",
-          "entry": "2026-08-19",
-          "entry_price": 2075.24,
-          "qty": 142,
-          "last_close": 2310.0,
-          "entry_reason": "Quant排名入選 #1：60日 +14.08%、20日 +28.00%、波動 4.96%，分數 0.5608。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #1 在可用名額 1 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 2145.64,
-            "ma10": 2079.59,
-            "ma20": 1967.03,
-            "ma60": 1779.82,
-            "r5_pct": 7.93,
-            "r20_pct": 28.0,
-            "r60_pct": 14.08,
-            "vol20_pct": 4.96,
-            "volume_ratio": 0.78,
-            "prior_60d_high": 2219.4,
-            "drawdown_60d_pct": -3.32
-          },
-          "discipline_pass": true
-        },
-        {
           "symbol": "3443",
           "signal_entry": "2026-09-10",
           "entry": "2026-09-11",
           "entry_price": 6200.0,
           "qty": 70,
-          "last_close": 6120.0,
+          "last_close": 6400.0,
           "entry_reason": "Quant排名入選 #1：60日 +22.66%、20日 +12.36%、波動 4.09%，分數 0.5740。",
           "entry_checks": [
             {
@@ -64670,6 +64810,88 @@
             "volume_ratio": 0.84,
             "prior_60d_high": 6125.0,
             "drawdown_60d_pct": 0.0
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2615",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 113.0,
+          "qty": 2925,
+          "last_close": 113.0,
+          "entry_reason": "Quant排名入選 #1：60日 +39.30%、20日 +23.62%、波動 4.54%，分數 0.8734。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 112.0,
+            "ma10": 113.6,
+            "ma20": 113.8,
+            "ma60": 92.91,
+            "r5_pct": -2.61,
+            "r20_pct": 23.62,
+            "r60_pct": 39.3,
+            "vol20_pct": 4.54,
+            "volume_ratio": 0.63,
+            "prior_60d_high": 126.5,
+            "drawdown_60d_pct": -11.46
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2603",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 235.0,
+          "qty": 1406,
+          "last_close": 237.0,
+          "entry_reason": "Quant排名入選 #2：60日 +21.50%、20日 +7.08%、波動 2.50%，分數 0.4166。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #2 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 234.5,
+            "ma10": 233.95,
+            "ma20": 236.93,
+            "ma60": 211.64,
+            "r5_pct": 0.64,
+            "r20_pct": 7.08,
+            "r60_pct": 21.5,
+            "vol20_pct": 2.5,
+            "volume_ratio": 0.49,
+            "prior_60d_high": 251.5,
+            "drawdown_60d_pct": -6.76
           },
           "discipline_pass": true
         }
@@ -105744,6 +105966,154 @@
             "drawdown_60d_pct": -12.65
           },
           "discipline_pass": true
+        },
+        {
+          "symbol": "2357",
+          "signal_entry": "2026-07-29",
+          "entry": "2026-07-30",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 762.0,
+          "exit_price": 900.0,
+          "qty": 374,
+          "pnl": 49716.44,
+          "return_pct": 17.42,
+          "days": 46,
+          "entry_reason": "Quant排名入選 #1：60日 +28.98%、20日 +15.83%、波動 2.46%，分數 0.5685。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 3 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 761.0,
+            "ma10": 739.2,
+            "ma20": 712.55,
+            "ma60": 731.58,
+            "r5_pct": 0.53,
+            "r20_pct": 15.83,
+            "r60_pct": 28.98,
+            "vol20_pct": 2.46,
+            "volume_ratio": 1.64,
+            "prior_60d_high": 931.0,
+            "drawdown_60d_pct": -18.26
+          },
+          "exit_reason": "趨勢失效：收盤 924.00 < MA20 961.65",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 924.0,
+            "ma10": 987.4,
+            "ma20": 961.65,
+            "ma60": 823.4,
+            "r5_pct": -9.85,
+            "r20_pct": -7.23,
+            "r60_pct": 17.11,
+            "vol20_pct": 3.18,
+            "volume_ratio": 1.63,
+            "prior_60d_high": 1025.0,
+            "drawdown_60d_pct": -9.85
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "6669",
+          "signal_entry": "2026-08-18",
+          "entry": "2026-08-19",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 2075.24,
+          "exit_price": 2315.0,
+          "qty": 142,
+          "pnl": 32172.06,
+          "return_pct": 10.9,
+          "days": 26,
+          "entry_reason": "Quant排名入選 #1：60日 +14.08%、20日 +28.00%、波動 4.96%，分數 0.5608。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 1 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 2145.64,
+            "ma10": 2079.59,
+            "ma20": 1967.03,
+            "ma60": 1779.82,
+            "r5_pct": 7.93,
+            "r20_pct": 28.0,
+            "r60_pct": 14.08,
+            "vol20_pct": 4.96,
+            "volume_ratio": 0.78,
+            "prior_60d_high": 2219.4,
+            "drawdown_60d_pct": -3.32
+          },
+          "exit_reason": "趨勢失效：收盤 2310.00 < MA20 2320.90",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 2310.0,
+            "ma10": 2445.36,
+            "ma20": 2320.9,
+            "ma60": 1955.75,
+            "r5_pct": -9.94,
+            "r20_pct": 7.07,
+            "r60_pct": 34.31,
+            "vol20_pct": 3.79,
+            "volume_ratio": 0.39,
+            "prior_60d_high": 2615.0,
+            "drawdown_60d_pct": -11.66
+          },
+          "discipline_pass": true
         }
       ],
       "equity_curve": [
@@ -106362,65 +106732,24 @@
         "execution_rule": "只使用 T 日收盤前已知資料產生訊號，下一個可交易日開盤成交；最多同時持有 5 檔。"
       },
       "discipline_audit": "Every published trade must have a signal reason and must pass the robot discipline checks.",
-      "final_equity": 1745190.0,
-      "total_return": 74.52,
-      "win_rate": 38.92,
+      "final_equity": 1710369.0,
+      "total_return": 71.04,
+      "win_rate": 39.13,
       "target_win_rate": null,
       "target_pass": null,
-      "trades": 573,
-      "cagr": 20.03,
+      "trades": 575,
+      "cagr": 19.18,
       "max_drawdown": -59.09,
-      "sharpe": 0.68,
-      "profit_factor": 1.17,
+      "sharpe": 0.67,
+      "profit_factor": 1.19,
       "open_positions": [
-        {
-          "symbol": "2357",
-          "signal_entry": "2026-07-29",
-          "entry": "2026-07-30",
-          "entry_price": 762.0,
-          "qty": 351,
-          "last_close": 924.0,
-          "entry_reason": "動能排名入選 #1：60日 +28.98%、20日 +15.83%、相對MA60 +4.02%，綜合分數 0.9153。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #1 在可用名額 3 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 761.0,
-            "ma10": 739.2,
-            "ma20": 712.55,
-            "ma60": 731.58,
-            "r5_pct": 0.53,
-            "r20_pct": 15.83,
-            "r60_pct": 28.98,
-            "vol20_pct": 2.46,
-            "volume_ratio": 1.64,
-            "prior_60d_high": 931.0,
-            "drawdown_60d_pct": -18.26
-          },
-          "discipline_pass": true
-        },
         {
           "symbol": "3008",
           "signal_entry": "2026-08-06",
           "entry": "2026-08-07",
           "entry_price": 4605.0,
           "qty": 58,
-          "last_close": 6660.0,
+          "last_close": 5995.0,
           "entry_reason": "動能排名入選 #1：60日 +62.28%、20日 +17.09%、相對MA60 +13.62%，綜合分數 1.7627。",
           "entry_checks": [
             {
@@ -106461,7 +106790,7 @@
           "entry": "2026-08-12",
           "entry_price": 2765.0,
           "qty": 95,
-          "last_close": 3370.0,
+          "last_close": 3310.0,
           "entry_reason": "動能排名入選 #1：60日 +14.52%、20日 +30.19%、相對MA60 +11.58%，綜合分數 0.8881。",
           "entry_checks": [
             {
@@ -106497,53 +106826,12 @@
           "discipline_pass": true
         },
         {
-          "symbol": "6669",
-          "signal_entry": "2026-08-18",
-          "entry": "2026-08-19",
-          "entry_price": 2075.24,
-          "qty": 134,
-          "last_close": 2310.0,
-          "entry_reason": "動能排名入選 #1：60日 +14.08%、20日 +28.00%、相對MA60 +20.55%，綜合分數 0.9353。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #1 在可用名額 1 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 2145.64,
-            "ma10": 2079.59,
-            "ma20": 1967.03,
-            "ma60": 1779.82,
-            "r5_pct": 7.93,
-            "r20_pct": 28.0,
-            "r60_pct": 14.08,
-            "vol20_pct": 4.96,
-            "volume_ratio": 0.78,
-            "prior_60d_high": 2219.4,
-            "drawdown_60d_pct": -3.32
-          },
-          "discipline_pass": true
-        },
-        {
           "symbol": "3443",
           "signal_entry": "2026-09-10",
           "entry": "2026-09-11",
           "entry_price": 6200.0,
           "qty": 65,
-          "last_close": 6120.0,
+          "last_close": 6400.0,
           "entry_reason": "動能排名入選 #1：60日 +22.66%、20日 +12.36%、相對MA60 +27.64%，綜合分數 0.9603。",
           "entry_checks": [
             {
@@ -106575,6 +106863,88 @@
             "volume_ratio": 0.84,
             "prior_60d_high": 6125.0,
             "drawdown_60d_pct": 0.0
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2615",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 113.0,
+          "qty": 2775,
+          "last_close": 113.0,
+          "entry_reason": "動能排名入選 #1：60日 +39.30%、20日 +23.62%、相對MA60 +20.54%，綜合分數 1.4244。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 112.0,
+            "ma10": 113.6,
+            "ma20": 113.8,
+            "ma60": 92.91,
+            "r5_pct": -2.61,
+            "r20_pct": 23.62,
+            "r60_pct": 39.3,
+            "vol20_pct": 4.54,
+            "volume_ratio": 0.63,
+            "prior_60d_high": 126.5,
+            "drawdown_60d_pct": -11.46
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2603",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 235.0,
+          "qty": 1334,
+          "last_close": 237.0,
+          "entry_reason": "動能排名入選 #2：60日 +21.50%、20日 +7.08%、相對MA60 +10.80%，綜合分數 0.6872。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #2 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 234.5,
+            "ma10": 233.95,
+            "ma20": 236.93,
+            "ma60": 211.64,
+            "r5_pct": 0.64,
+            "r20_pct": 7.08,
+            "r60_pct": 21.5,
+            "vol20_pct": 2.5,
+            "volume_ratio": 0.49,
+            "prior_60d_high": 251.5,
+            "drawdown_60d_pct": -6.76
           },
           "discipline_pass": true
         }
@@ -148981,6 +149351,154 @@
             "drawdown_60d_pct": -12.65
           },
           "discipline_pass": true
+        },
+        {
+          "symbol": "2357",
+          "signal_entry": "2026-07-29",
+          "entry": "2026-07-30",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 762.0,
+          "exit_price": 900.0,
+          "qty": 351,
+          "pnl": 46659.01,
+          "return_pct": 17.42,
+          "days": 46,
+          "entry_reason": "動能排名入選 #1：60日 +28.98%、20日 +15.83%、相對MA60 +4.02%，綜合分數 0.9153。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 3 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 761.0,
+            "ma10": 739.2,
+            "ma20": 712.55,
+            "ma60": 731.58,
+            "r5_pct": 0.53,
+            "r20_pct": 15.83,
+            "r60_pct": 28.98,
+            "vol20_pct": 2.46,
+            "volume_ratio": 1.64,
+            "prior_60d_high": 931.0,
+            "drawdown_60d_pct": -18.26
+          },
+          "exit_reason": "趨勢失效：收盤 924.00 < MA20 961.65",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 924.0,
+            "ma10": 987.4,
+            "ma20": 961.65,
+            "ma60": 823.4,
+            "r5_pct": -9.85,
+            "r20_pct": -7.23,
+            "r60_pct": 17.11,
+            "vol20_pct": 3.18,
+            "volume_ratio": 1.63,
+            "prior_60d_high": 1025.0,
+            "drawdown_60d_pct": -9.85
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "6669",
+          "signal_entry": "2026-08-18",
+          "entry": "2026-08-19",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 2075.24,
+          "exit_price": 2315.0,
+          "qty": 134,
+          "pnl": 30359.55,
+          "return_pct": 10.9,
+          "days": 26,
+          "entry_reason": "動能排名入選 #1：60日 +14.08%、20日 +28.00%、相對MA60 +20.55%，綜合分數 0.9353。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 1 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 2145.64,
+            "ma10": 2079.59,
+            "ma20": 1967.03,
+            "ma60": 1779.82,
+            "r5_pct": 7.93,
+            "r20_pct": 28.0,
+            "r60_pct": 14.08,
+            "vol20_pct": 4.96,
+            "volume_ratio": 0.78,
+            "prior_60d_high": 2219.4,
+            "drawdown_60d_pct": -3.32
+          },
+          "exit_reason": "趨勢失效：收盤 2310.00 < MA20 2320.90",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 2310.0,
+            "ma10": 2445.36,
+            "ma20": 2320.9,
+            "ma60": 1955.75,
+            "r5_pct": -9.94,
+            "r20_pct": 7.07,
+            "r60_pct": 34.31,
+            "vol20_pct": 3.79,
+            "volume_ratio": 0.39,
+            "prior_60d_high": 2615.0,
+            "drawdown_60d_pct": -11.66
+          },
+          "discipline_pass": true
         }
       ],
       "equity_curve": [
@@ -149601,16 +150119,16 @@
         "execution_rule": "只使用 T 日收盤前已知資料產生訊號，下一個可交易日開盤成交；最多同時持有 5 檔。"
       },
       "discipline_audit": "Every published trade must have a signal reason and must pass the robot discipline checks.",
-      "final_equity": 1460435.0,
-      "total_return": 46.04,
-      "win_rate": 70.35,
+      "final_equity": 1458694.0,
+      "total_return": 45.87,
+      "win_rate": 70.23,
       "target_win_rate": 70.0,
       "target_pass": true,
-      "trades": 597,
-      "cagr": 13.22,
+      "trades": 598,
+      "cagr": 13.14,
       "max_drawdown": -37.56,
       "sharpe": 0.63,
-      "profit_factor": 1.2,
+      "profit_factor": 1.19,
       "open_positions": [
         {
           "symbol": "2603",
@@ -149618,7 +150136,7 @@
           "entry": "2026-09-07",
           "entry_price": 234.0,
           "qty": 2255,
-          "last_close": 234.5,
+          "last_close": 237.0,
           "entry_reason": "Precision A+ setup 入選 #2：Trend Pullback；60日 +3.10%、20日 +12.29%、5日 +0.65%、量比 0.94、波動 2.52%，分數 0.1366。",
           "entry_checks": [
             {
@@ -149659,7 +150177,7 @@
           "entry": "2026-09-08",
           "entry_price": 3455.0,
           "qty": 37,
-          "last_close": 3370.0,
+          "last_close": 3310.0,
           "entry_reason": "Precision A+ setup 入選 #1：Trend Pullback；60日 +42.20%、20日 +23.69%、5日 -0.15%、量比 0.78、波動 4.28%，分數 1.1251。",
           "entry_checks": [
             {
@@ -149695,53 +150213,12 @@
           "discipline_pass": true
         },
         {
-          "symbol": "2357",
-          "signal_entry": "2026-09-07",
-          "entry": "2026-09-08",
-          "entry_price": 992.0,
-          "qty": 129,
-          "last_close": 924.0,
-          "entry_reason": "Precision A+ setup 入選 #2：Trend Pullback；60日 +27.26%、20日 +22.13%、5日 +0.00%、量比 1.22、波動 3.73%，分數 0.7807。",
-          "entry_checks": [
-            {
-              "rule": "訊號只使用 T 日收盤資料",
-              "passed": true
-            },
-            {
-              "rule": "策略條件/分數有效",
-              "passed": true
-            },
-            {
-              "rule": "排名 #2 在可用名額 3 內",
-              "passed": true
-            },
-            {
-              "rule": "成交延後至 T+1 開盤",
-              "passed": true
-            }
-          ],
-          "entry_snapshot": {
-            "close": 999.0,
-            "ma10": 984.3,
-            "ma20": 949.85,
-            "ma60": 811.98,
-            "r5_pct": 0.0,
-            "r20_pct": 22.13,
-            "r60_pct": 27.26,
-            "vol20_pct": 3.73,
-            "volume_ratio": 1.22,
-            "prior_60d_high": 1025.0,
-            "drawdown_60d_pct": -2.54
-          },
-          "discipline_pass": true
-        },
-        {
           "symbol": "3034",
           "signal_entry": "2026-09-07",
           "entry": "2026-09-08",
           "entry_price": 543.0,
           "qty": 236,
-          "last_close": 547.0,
+          "last_close": 556.0,
           "entry_reason": "Precision A+ setup 入選 #3：Trend Pullback；60日 +10.54%、20日 -0.74%、5日 +0.00%、量比 0.65、波動 2.31%，分數 0.1644。",
           "entry_checks": [
             {
@@ -149782,7 +150259,7 @@
           "entry": "2026-09-11",
           "entry_price": 2290.0,
           "qty": 240,
-          "last_close": 2310.0,
+          "last_close": 2270.0,
           "entry_reason": "Precision A+ setup 入選 #1：Trend Pullback；60日 +37.69%、20日 +15.23%、5日 -5.25%、量比 0.59、波動 3.96%，分數 0.8783。",
           "entry_checks": [
             {
@@ -149814,6 +150291,47 @@
             "volume_ratio": 0.59,
             "prior_60d_high": 2615.0,
             "drawdown_60d_pct": -10.32
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2881",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 146.5,
+          "qty": 813,
+          "last_close": 154.0,
+          "entry_reason": "Precision A+ setup 入選 #1：Trend Pullback；60日 +7.61%、20日 +14.67%、5日 -1.33%、量比 0.50、波動 2.46%，分數 0.2639。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 1 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 148.5,
+            "ma10": 147.25,
+            "ma20": 140.78,
+            "ma60": 131.85,
+            "r5_pct": -1.33,
+            "r20_pct": 14.67,
+            "r60_pct": 7.61,
+            "vol20_pct": 2.46,
+            "volume_ratio": 0.5,
+            "prior_60d_high": 150.5,
+            "drawdown_60d_pct": -1.33
           },
           "discipline_pass": true
         }
@@ -193996,6 +194514,80 @@
             "drawdown_60d_pct": 0.0
           },
           "discipline_pass": true
+        },
+        {
+          "symbol": "2357",
+          "signal_entry": "2026-09-07",
+          "entry": "2026-09-08",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 992.0,
+          "exit_price": 900.0,
+          "qty": 129,
+          "pnl": -12564.1,
+          "return_pct": -9.8,
+          "days": 6,
+          "entry_reason": "Precision A+ setup 入選 #2：Trend Pullback；60日 +27.26%、20日 +22.13%、5日 +0.00%、量比 1.22、波動 3.73%，分數 0.7807。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #2 在可用名額 3 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 999.0,
+            "ma10": 984.3,
+            "ma20": 949.85,
+            "ma60": 811.98,
+            "r5_pct": 0.0,
+            "r20_pct": 22.13,
+            "r60_pct": 27.26,
+            "vol20_pct": 3.73,
+            "volume_ratio": 1.22,
+            "prior_60d_high": 1025.0,
+            "drawdown_60d_pct": -2.54
+          },
+          "exit_reason": "停損觸發：收盤相對進場 -6.85% ≤ -6.00%",
+          "exit_checks": [
+            {
+              "rule": "達到已定義的 Precision 出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 924.0,
+            "ma10": 987.4,
+            "ma20": 961.65,
+            "ma60": 823.4,
+            "r5_pct": -9.85,
+            "r20_pct": -7.23,
+            "r60_pct": 17.11,
+            "vol20_pct": 3.18,
+            "volume_ratio": 1.63,
+            "prior_60d_high": 1025.0,
+            "drawdown_60d_pct": -9.85
+          },
+          "discipline_pass": true
         }
       ],
       "equity_curve": [
@@ -194633,15 +195225,15 @@
         "execution_rule": "只使用 T 日收盤前已知資料產生訊號，下一個可交易日開盤成交；最多同時持有 5 檔。"
       },
       "discipline_audit": "Every published trade must have a signal reason and must pass the robot discipline checks.",
-      "final_equity": 462762.0,
-      "total_return": -53.72,
-      "win_rate": 40.04,
+      "final_equity": 466144.0,
+      "total_return": -53.39,
+      "win_rate": 39.99,
       "target_win_rate": null,
       "target_pass": null,
-      "trades": 1681,
-      "cagr": -22.33,
+      "trades": 1683,
+      "cagr": -22.09,
       "max_drawdown": -74.01,
-      "sharpe": -0.57,
+      "sharpe": -0.56,
       "profit_factor": 0.81,
       "open_positions": [
         {
@@ -194650,7 +195242,7 @@
           "entry": "2026-09-01",
           "entry_price": 48.2,
           "qty": 1872,
-          "last_close": 51.7,
+          "last_close": 52.5,
           "entry_reason": "反轉排名入選 #2：5日 +3.63%、20日 -5.91%、相對MA60 +3.01%，分數 0.1074。",
           "entry_checks": [
             {
@@ -194691,7 +195283,7 @@
           "entry": "2026-09-03",
           "entry_price": 188.0,
           "qty": 498,
-          "last_close": 185.5,
+          "last_close": 181.0,
           "entry_reason": "反轉排名入選 #2：5日 +1.92%、20日 -3.89%、相對MA60 +10.43%，分數 0.1588。",
           "entry_checks": [
             {
@@ -194732,7 +195324,7 @@
           "entry": "2026-09-09",
           "entry_price": 532.0,
           "qty": 171,
-          "last_close": 547.0,
+          "last_close": 556.0,
           "entry_reason": "反轉排名入選 #3：5日 -3.26%、20日 -0.74%、相對MA60 +2.05%，分數 0.0600。",
           "entry_checks": [
             {
@@ -194768,13 +195360,13 @@
           "discipline_pass": true
         },
         {
-          "symbol": "1590",
-          "signal_entry": "2026-09-10",
-          "entry": "2026-09-11",
-          "entry_price": 1260.0,
-          "qty": 70,
-          "last_close": 1285.0,
-          "entry_reason": "反轉排名入選 #1：5日 -5.09%、20日 -11.22%、相對MA60 -7.00%，分數 0.1728。",
+          "symbol": "2357",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 900.0,
+          "qty": 96,
+          "last_close": 934.0,
+          "entry_reason": "反轉排名入選 #1：5日 -9.85%、20日 -7.23%、相對MA60 +12.22%，分數 0.3311。",
           "entry_checks": [
             {
               "rule": "訊號只使用 T 日收盤資料",
@@ -194794,28 +195386,28 @@
             }
           ],
           "entry_snapshot": {
-            "close": 1305.0,
-            "ma10": 1379.0,
-            "ma20": 1417.5,
-            "ma60": 1403.17,
-            "r5_pct": -5.09,
-            "r20_pct": -11.22,
-            "r60_pct": -1.14,
-            "vol20_pct": 1.78,
-            "volume_ratio": 1.33,
-            "prior_60d_high": 1595.0,
-            "drawdown_60d_pct": -18.18
+            "close": 924.0,
+            "ma10": 987.4,
+            "ma20": 961.65,
+            "ma60": 823.4,
+            "r5_pct": -9.85,
+            "r20_pct": -7.23,
+            "r60_pct": 17.11,
+            "vol20_pct": 3.18,
+            "volume_ratio": 1.63,
+            "prior_60d_high": 1025.0,
+            "drawdown_60d_pct": -9.85
           },
           "discipline_pass": true
         },
         {
-          "symbol": "2345",
-          "signal_entry": "2026-09-10",
-          "entry": "2026-09-11",
-          "entry_price": 1910.0,
-          "qty": 46,
-          "last_close": 1885.0,
-          "entry_reason": "反轉排名入選 #2：5日 -5.98%、20日 -13.44%、相對MA60 -12.90%，分數 0.1607。",
+          "symbol": "3661",
+          "signal_entry": "2026-09-11",
+          "entry": "2026-09-14",
+          "entry_price": 3410.0,
+          "qty": 25,
+          "last_close": 3590.0,
+          "entry_reason": "反轉排名入選 #2：5日 -13.51%、20日 -13.30%、相對MA60 -5.66%，分數 0.2909。",
           "entry_checks": [
             {
               "rule": "訊號只使用 T 日收盤資料",
@@ -194835,17 +195427,17 @@
             }
           ],
           "entry_snapshot": {
-            "close": 1965.0,
-            "ma10": 2073.0,
-            "ma20": 2102.75,
-            "ma60": 2256.08,
-            "r5_pct": -5.98,
-            "r20_pct": -13.44,
-            "r60_pct": -21.24,
-            "vol20_pct": 3.34,
-            "volume_ratio": 0.83,
-            "prior_60d_high": 2750.0,
-            "drawdown_60d_pct": -28.55
+            "close": 3650.0,
+            "ma10": 4050.0,
+            "ma20": 3942.5,
+            "ma60": 3869.0,
+            "r5_pct": -13.51,
+            "r20_pct": -13.3,
+            "r60_pct": -16.67,
+            "vol20_pct": 4.26,
+            "volume_ratio": 2.21,
+            "prior_60d_high": 4895.0,
+            "drawdown_60d_pct": -25.43
           },
           "discipline_pass": true
         }
@@ -319242,6 +319834,154 @@
             "volume_ratio": 0.76,
             "prior_60d_high": 397.5,
             "drawdown_60d_pct": -11.57
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "1590",
+          "signal_entry": "2026-09-10",
+          "entry": "2026-09-11",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 1260.0,
+          "exit_price": 1255.0,
+          "qty": 70,
+          "pnl": -864.42,
+          "return_pct": -0.98,
+          "days": 3,
+          "entry_reason": "反轉排名入選 #1：5日 -5.09%、20日 -11.22%、相對MA60 -7.00%，分數 0.1728。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #1 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 1305.0,
+            "ma10": 1379.0,
+            "ma20": 1417.5,
+            "ma60": 1403.17,
+            "r5_pct": -5.09,
+            "r20_pct": -11.22,
+            "r60_pct": -1.14,
+            "vol20_pct": 1.78,
+            "volume_ratio": 1.33,
+            "prior_60d_high": 1595.0,
+            "drawdown_60d_pct": -18.18
+          },
+          "exit_reason": "趨勢失效：收盤 1285.00 < MA20 1408.75",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 1285.0,
+            "ma10": 1366.0,
+            "ma20": 1408.75,
+            "ma60": 1401.58,
+            "r5_pct": -7.89,
+            "r20_pct": -11.99,
+            "r60_pct": -6.88,
+            "vol20_pct": 1.79,
+            "volume_ratio": 1.89,
+            "prior_60d_high": 1595.0,
+            "drawdown_60d_pct": -19.44
+          },
+          "discipline_pass": true
+        },
+        {
+          "symbol": "2345",
+          "signal_entry": "2026-09-10",
+          "entry": "2026-09-11",
+          "signal_exit": "2026-09-11",
+          "exit": "2026-09-14",
+          "entry_price": 1910.0,
+          "exit_price": 1840.0,
+          "qty": 46,
+          "pnl": -3719.73,
+          "return_pct": -4.23,
+          "days": 3,
+          "entry_reason": "反轉排名入選 #2：5日 -5.98%、20日 -13.44%、相對MA60 -12.90%，分數 0.1607。",
+          "entry_checks": [
+            {
+              "rule": "訊號只使用 T 日收盤資料",
+              "passed": true
+            },
+            {
+              "rule": "策略條件/分數有效",
+              "passed": true
+            },
+            {
+              "rule": "排名 #2 在可用名額 2 內",
+              "passed": true
+            },
+            {
+              "rule": "成交延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "entry_snapshot": {
+            "close": 1965.0,
+            "ma10": 2073.0,
+            "ma20": 2102.75,
+            "ma60": 2256.08,
+            "r5_pct": -5.98,
+            "r20_pct": -13.44,
+            "r60_pct": -21.24,
+            "vol20_pct": 3.34,
+            "volume_ratio": 0.83,
+            "prior_60d_high": 2750.0,
+            "drawdown_60d_pct": -28.55
+          },
+          "exit_reason": "趨勢失效：收盤 1885.00 < MA20 2082.00",
+          "exit_checks": [
+            {
+              "rule": "達到既定出場條件",
+              "passed": true
+            },
+            {
+              "rule": "出場訊號在 T 日收盤判定",
+              "passed": true
+            },
+            {
+              "rule": "實際賣出延後至 T+1 開盤",
+              "passed": true
+            }
+          ],
+          "exit_snapshot": {
+            "close": 1885.0,
+            "ma10": 2049.0,
+            "ma20": 2082.0,
+            "ma60": 2246.92,
+            "r5_pct": -10.24,
+            "r20_pct": -18.04,
+            "r60_pct": -22.59,
+            "vol20_pct": 3.39,
+            "volume_ratio": 1.13,
+            "prior_60d_high": 2750.0,
+            "drawdown_60d_pct": -31.45
           },
           "discipline_pass": true
         }
